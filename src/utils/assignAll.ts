@@ -1,7 +1,4 @@
-import without = require('lodash/without');
-import attempt = require('lodash/attempt');
-import isObject = require('lodash/isObject');
-
+import { without, attempt, isObject } from 'lodash-es';
 /**
  * Assigns all properties from an object to another object including non enumerable
  * properties.
@@ -38,7 +35,7 @@ export function assignProperty<T, U>(to: T, from: U, prop: string): void {
   if (!descriptor || descriptor.configurable) {
     const srcDescriptor = Object.getOwnPropertyDescriptor(from, prop);
 
-    if (isObject(srcDescriptor)) {
+    if (srcDescriptor && isObject(srcDescriptor)) {
       Object.defineProperty(to, prop, srcDescriptor);
     } else {
       (to as any)[prop] = (from as any)[prop];

@@ -1,5 +1,4 @@
-import identity = require('lodash/identity');
-
+import { identity } from 'lodash-es';
 import { Applicator, ApplicateOptions } from './Applicator';
 import { resolveFunction } from '../utils';
 
@@ -17,7 +16,7 @@ export class ComposeApplicator extends Applicator {
 
     return function(...invokeArgs: any[]): any {
       const _args = [
-        ...args.map(method => resolveFunction(method, this, target))
+        ...args.map((method) => resolveFunction(method, this, target))
       ];
 
       if (applicator.post) {

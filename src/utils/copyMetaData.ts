@@ -1,5 +1,5 @@
-import forOwn = require('lodash/forOwn');
 
+import { forOwn } from 'lodash-es';
 /**
  * Used to copy over meta data from function to function.
  * If meta data is attached to a function. This can get lost

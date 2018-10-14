@@ -1,5 +1,4 @@
-import isFunction = require('lodash/isFunction');
-
+import { isFunction } from 'lodash-es';
 import { InstanceChainMap } from './factory';
 import { Bind } from './bind';
 
@@ -46,7 +45,7 @@ function bindAllMethods(target: Function, methods: string[] = []): void {
         // If this property is a getter and it's NOT an instance decorated
         // method, ignore it. Instance decorators are getters until first accessed.
         if (descriptor.get) {
-          const chainData = InstanceChainMap.get([ proto, key ]);
+          const chainData = InstanceChainMap.get([proto, key]);
 
           if (!chainData || !chainData.isMethod) {
             continue;

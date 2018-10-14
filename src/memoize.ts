@@ -1,4 +1,5 @@
-import memoize = require('lodash/memoize');
+
+import { memoize } from 'lodash-es';
 
 import {
   DecoratorConfig,

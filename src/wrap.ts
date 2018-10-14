@@ -1,5 +1,4 @@
-import wrap = require('lodash/wrap');
-
+import { wrap } from 'lodash-es';
 import {
   DecoratorConfig,
   DecoratorFactory,

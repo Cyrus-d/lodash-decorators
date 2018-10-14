@@ -1,5 +1,4 @@
-import isFunction = require('lodash/isFunction');
-
+import { isFunction } from 'lodash-es';
 import {
   InstanceChainMap,
   LodashDecorator,
@@ -28,7 +27,7 @@ export class InternalDecoratorFactory {
 
         // If this decorator is being applied after an instance decorator we simply ignore it
         // as we can't apply it correctly.
-        if (!InstanceChainMap.has([ target, name ])) {
+        if (!InstanceChainMap.has([target, name])) {
           if (isFunction(value)) {
             descriptor.value = copyMetadata(applicator.apply({ config, target, value, args: params }), value);
           } else if (isFunction(get) && config.getter) {
@@ -59,8 +58,8 @@ export class InternalDecoratorFactory {
       const decorator = (target: Object, name: string, _descriptor?: PropertyDescriptor): PropertyDescriptor => {
         const descriptor = this._resolveDescriptor(target, name, _descriptor);
         const { value, writable, enumerable, configurable, get, set } = descriptor;
-        const isFirstInstance = !InstanceChainMap.has([ target, name ]);
-        const chainData = InstanceChainMap.get([ target, name ]) || { fns: [], properties: [] };
+        const isFirstInstance = !InstanceChainMap.has([target, name]);
+        const chainData = InstanceChainMap.get([target, name]) || { fns: [], properties: [] };
         const isGetter = isFirstInstance && isFunction(get);
         const isSetter = isFirstInstance && isFunction(set);
         const isMethod = isFirstInstance && isFunction(value);
@@ -83,7 +82,7 @@ export class InternalDecoratorFactory {
           );
         });
 
-        InstanceChainMap.set([ target, name ], chainData);
+        InstanceChainMap.set([target, name], chainData);
 
         if (!isFirstInstance) {
           return descriptor;
@@ -130,7 +129,7 @@ export class InternalDecoratorFactory {
               value: newFn
             });
           }
-        }
+        };
 
         if (isMethod || isProperty) {
           delete descriptor.value;
@@ -181,12 +180,12 @@ export class InternalDecoratorFactory {
   }
 
   private _isApplicable(context: InstanceChainContext, config: DecoratorConfig): boolean {
-   return !Boolean(
-     context.getter && !config.getter
+    return !Boolean(
+      context.getter && !config.getter
       || context.setter && !config.setter
       || context.method && !config.method
       || context.property && !config.property
-   );
+    );
   }
 
   private _resolveDescriptor(target: Object, name: string, descriptor?: PropertyDescriptor): PropertyDescriptor {
