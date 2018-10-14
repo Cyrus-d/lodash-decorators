@@ -26,12 +26,12 @@
     "docs:serve": "http-server ./docs",
     "docs:publish": "git subtree push --prefix docs origin gh-pages",
     "readme": "doctoc ./README.md",
-    "release": "npm run build && npm run docs && npm run readme",
+    "release": "npm run build",
     "lint": "tslint src/**",
     "lint:fix": "tslint src/** --fix",
     "version": "standard-version"
   },
-  "main": "index.js",
+  "main": "lib/index.js",
   "typings": "index.d.ts",
   "keywords": [
     "lodash",
