@@ -1,10 +1,11 @@
 import { Applicator } from '../applicators';
 import { CompositeKeyWeakMap } from '../utils';
 
+// tslint:disable-next-line:interface-over-type-literal
 export type ApplicatorToken = { new(): Applicator };
 export type LodashMethodDecorator = MethodDecorator;
 export type LodashDecorator = MethodDecorator & PropertyDecorator;
-export type ResolvableFunction = string|Function;
+export type ResolvableFunction = string | Function;
 
 export type BiTypedMethodDecorator = (() => LodashMethodDecorator) & LodashMethodDecorator;
 export type BiTypedMethodDecorator1<T> = ((arg?: T) => LodashMethodDecorator) & LodashMethodDecorator;

@@ -9,7 +9,7 @@ describe('when determining if args are from a decorator', () => {
         describe('and when the first argument has a constructor property', () => {
           describe('and when the constructors prototype is the first argument', () => {
             it('should return true', () => {
-              class Test {}
+              class Test { }
 
               expect(isMethodOrPropertyDecoratorArgs(Test.prototype, 'test')).to.be.true;
             });
@@ -17,7 +17,7 @@ describe('when determining if args are from a decorator', () => {
 
           describe('and when the constructors prototype is not the first argument', () => {
             it('should return false', () => {
-              class Test {}
+              class Test { }
 
               expect(isMethodOrPropertyDecoratorArgs({ constructor: Test }, 'test')).to.be.false;
             });
@@ -47,10 +47,9 @@ describe('when determining if args are from a decorator', () => {
 
   describe('and when the arguments are gte to 2', () => {
     it('should return false', () => {
-      class Test {}
+      class Test { }
 
       expect(isMethodOrPropertyDecoratorArgs(Test.prototype)).to.be.false;
     });
   });
 });
-

@@ -113,6 +113,7 @@ export class InternalDecoratorFactory {
 
             Object.defineProperty(instance, name, {
               enumerable,
+              // tslint:disable-next-line:object-literal-sort-keys
               configurable,
               get: getter,
               set: setter
@@ -124,6 +125,7 @@ export class InternalDecoratorFactory {
 
             Object.defineProperty(instance, name, {
               writable,
+              // tslint:disable-next-line:object-literal-sort-keys
               enumerable,
               configurable,
               value: newFn
@@ -145,6 +147,7 @@ export class InternalDecoratorFactory {
 
           applyDecorator(this);
 
+          // tslint:disable-next-line:no-shadowed-variable
           const descriptor = Object.getOwnPropertyDescriptor(this, name)!;
 
           if (descriptor.get) {
@@ -154,9 +157,11 @@ export class InternalDecoratorFactory {
           return descriptor.value;
         };
 
+        // tslint:disable-next-line:no-shadowed-variable
         descriptor.set = function(value) {
           applyDecorator(this);
 
+          // tslint:disable-next-line:no-shadowed-variable
           const descriptor = Object.getOwnPropertyDescriptor(this, name)!;
 
           if (descriptor.set) {
