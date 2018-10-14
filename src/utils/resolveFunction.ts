@@ -13,7 +13,7 @@ import { log } from './log';
    @returns {Function} The resolved function.
 */
 
-export function resolveFunction(method?: string | Function, context?: any, target?: any, throwNotFound: boolean = true): any {
+export function resolveFunction(method?: string | Function, context?: any, target?: any, throwNotFound = true): any {
   if (isFunction(method)) {
     return method;
   } else if (isString(method)) {

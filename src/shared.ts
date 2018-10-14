@@ -12,7 +12,7 @@ export interface ApplicateOptions {
   target: any;
   value: any;
   args: any[];
-  instance?: Object;
+  instance?: {};
 }
 
 export interface ThrottleOptions {
@@ -30,6 +30,6 @@ export interface MemoizeMap<T, U> {
 
 export interface MemoizeConfig<T, U> {
   resolver?: ResolvableFunction;
-  type?: { new (...args: any[]): MemoizeMap<T, U> };
+  type?: { new(...args: any[]): MemoizeMap<T, U> };
   cache?: MemoizeMap<T, U>;
 }

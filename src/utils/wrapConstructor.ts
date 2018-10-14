@@ -16,8 +16,9 @@ const PROPERTY_EXCLUDES = [
  * @param {(Ctor: Function, ...args: any[]) => any} wrapper
  * @returns {Function}
  */
-export function wrapConstructor(Ctor: Function, wrapper: (Ctor: Function, ...args: any[]) => any): Function {
+export function wrapConstructor(Ctor: Function, wrapper: (Ctor: Function, ...args: any[]) => any): Function {// tslint:disable-line
   function ConstructorWrapper(...args: any[]) {
+    // @ts-ignore
     return wrapper.call(this, Ctor, ...args);
   }
 

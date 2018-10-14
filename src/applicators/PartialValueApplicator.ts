@@ -10,10 +10,12 @@ export class PartialValueApplicator extends Applicator {
       let argIndex = 0;
 
       if (!isFunction(fn)) {
+        // @ts-ignore
+
         fn = resolveFunction(args[0], this, target);
         argIndex = 1;
       }
-
+      // @ts-ignore
       return execute(fn, ...args.slice(argIndex)).apply(this, invokeArgs);
     };
   }

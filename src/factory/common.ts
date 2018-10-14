@@ -35,4 +35,4 @@ export interface InstanceChainData {
   isProperty: boolean;
 }
 
-export const InstanceChainMap = new CompositeKeyWeakMap<InstanceChainData>();
+export const InstanceChainMap = new CompositeKeyWeakMap<InstanceChainData>();// tslint:disable-line

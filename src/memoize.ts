@@ -34,8 +34,8 @@ import { MemoizeConfig } from './shared';
  *   }
  * }
  */
-export const Memoize = DecoratorFactory.createInstanceDecorator(
+export const Memoize = DecoratorFactory.createInstanceDecorator(// tslint:disable-line
   new DecoratorConfig(memoize, new MemoizeApplicator(), { optionalParams: true })
 ) as BiTypedMethodDecorator1<ResolvableFunction | MemoizeConfig<any, any>>;
 export { Memoize as memoize };
-export default Memoize;
+export default Memoize;// tslint:disable-line

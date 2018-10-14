@@ -11,10 +11,10 @@ export interface DecoratorConfigOptions {
 
 export class DecoratorConfig {
   constructor(
-    public readonly execute: Function,
-    public readonly applicator: Applicator,
-    public readonly options: DecoratorConfigOptions = {}
-  ) {}
+    readonly execute: Function,
+    readonly applicator: Applicator,
+    readonly options: DecoratorConfigOptions = {}
+  ) { }
 
   get bound(): boolean {
     return this.options.bound != null ? this.options.bound : false;

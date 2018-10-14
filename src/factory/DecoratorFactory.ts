@@ -21,7 +21,7 @@ export class InternalDecoratorFactory {
     return (...args: any[]): LodashDecorator => {
       let params = args;
 
-      const decorator = (target: Object, name: string, _descriptor?: PropertyDescriptor): PropertyDescriptor => {
+      const decorator = (target: {}, name: string, _descriptor?: PropertyDescriptor): PropertyDescriptor => {
         const descriptor = this._resolveDescriptor(target, name, _descriptor);
         const { value, get, set } = descriptor;
 
@@ -46,7 +46,7 @@ export class InternalDecoratorFactory {
         return decorator(args[0], args[1], args[2]) as any;
       }
 
-      return decorator;
+      return decorator as any;
     };
   }
 
@@ -55,7 +55,7 @@ export class InternalDecoratorFactory {
 
     return (...args: any[]): LodashDecorator => {
       let params = args;
-      const decorator = (target: Object, name: string, _descriptor?: PropertyDescriptor): PropertyDescriptor => {
+      const decorator = (target: {}, name: string, _descriptor?: PropertyDescriptor): PropertyDescriptor => {
         const descriptor = this._resolveDescriptor(target, name, _descriptor);
         const { value, writable, enumerable, configurable, get, set } = descriptor;
         const isFirstInstance = !InstanceChainMap.has([target, name]);
@@ -104,11 +104,11 @@ export class InternalDecoratorFactory {
           if (isGetter || isSetter) {
             // If we have a getter apply the decorators to the getter and assign it to the instance.
             if (isGetter) {
-              getter = applyChain(get, { value: get, getter: true }, instance);
+              getter = applyChain(get, { value: get, getter: true }, instance) as any;
             }
 
             if (isSetter) {
-              setter = applyChain(set, { value: set, setter: true }, instance);
+              setter = applyChain(set, { value: set, setter: true }, instance) as any;
             }
 
             Object.defineProperty(instance, name, {
@@ -179,7 +179,7 @@ export class InternalDecoratorFactory {
 
         return decorator(args[0], args[1], args[2]) as any;
       }
-
+      // @ts-ignore
       return decorator;
     };
   }
@@ -193,7 +193,7 @@ export class InternalDecoratorFactory {
     );
   }
 
-  private _resolveDescriptor(target: Object, name: string, descriptor?: PropertyDescriptor): PropertyDescriptor {
+  private _resolveDescriptor(target: any, name: string, descriptor?: PropertyDescriptor): PropertyDescriptor {
     if (descriptor) {
       return descriptor;
     }
@@ -202,4 +202,4 @@ export class InternalDecoratorFactory {
   }
 }
 
-export const DecoratorFactory = new InternalDecoratorFactory();
+export const DecoratorFactory = new InternalDecoratorFactory();// tslint:disable-line
