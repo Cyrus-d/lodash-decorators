@@ -5,5 +5,5 @@ export declare class ComposeApplicator extends Applicator {
         post?: boolean;
     });
     readonly post: boolean;
-    apply({ config: { execute }, value, args, target }: ApplicateOptions): any;
+    apply({config: {execute}, value, args, target}: ApplicateOptions): any;
 }

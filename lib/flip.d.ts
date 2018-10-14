@@ -1,5 +1,5 @@
 import { LodashDecorator, ResolvableFunction } from './factory';
-declare const decorator: import("../../../Projects/lodash-decorators/src/factory/DecoratorFactory").GenericDecorator;
+declare const decorator: (...args: any[]) => LodashDecorator;
 /**
  * Creates a function that invokes func with arguments reversed. Honestly, there is probably not much
  * use for this decorator but maybe you will find one?

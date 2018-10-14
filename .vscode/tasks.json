@@ -9,23 +9,56 @@
   "tasks": [
     {
       "taskName": "install",
-      "args": ["install"]
+      "args": [
+        "install"
+      ]
     },
     {
       "taskName": "update",
-      "args": ["update"]
+      "args": [
+        "update"
+      ]
     },
     {
       "taskName": "test",
-      "args": ["run", "test"]
+      "args": [
+        "run",
+        "test"
+      ]
     },
     {
       "taskName": "build:test",
-      "args": ["run", "build:test"]
+      "args": [
+        "run",
+        "build:test"
+      ]
     },
     {
       "taskName": "clean",
-      "args": ["run", "clean"]
+      "args": [
+        "run",
+        "clean"
+      ]
+    },
+    {
+      "taskName": "Monitor TS Errors",
+      "command": "tsc",
+      "type": "shell",
+      "args": [
+        "--watch",
+        "--project",
+        ".",
+        "-p",
+        "\"${workspaceFolder}/tsconfig.json\""
+      ],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "isBackground": true,
+      "problemMatcher": "$tsc-watch"
     }
   ]
 }

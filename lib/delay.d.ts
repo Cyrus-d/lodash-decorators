@@ -1,5 +1,5 @@
 import { LodashMethodDecorator } from './factory';
-declare const decorator: import("../../../Projects/lodash-decorators/src/factory/DecoratorFactory").GenericDecorator;
+declare const decorator: (...args: any[]) => MethodDecorator & PropertyDecorator;
 /**
  * Invokes func after wait milliseconds. Any additional arguments are provided to func when it's invoked.
  *

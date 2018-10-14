@@ -1,5 +1,5 @@
 import { LodashDecorator } from './factory';
-declare const decorator: import("../../../Projects/lodash-decorators/src/factory/DecoratorFactory").GenericDecorator;
+declare const decorator: (...args: any[]) => LodashDecorator;
 /**
  * The opposite of Before. This method creates a function that invokes once it's called n or more times.
  * @param {number} n The number of calls before the function is invoked.

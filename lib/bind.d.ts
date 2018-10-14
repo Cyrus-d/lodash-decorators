@@ -25,5 +25,5 @@ import { BiTypedMethodDecorator1 } from './factory';
  * myClass.unbound.call(null); // => null
  */
 export declare const Bind: BiTypedMethodDecorator1<any>;
-export { Bind as bind, };
+export { Bind as bind };
 export default Bind;

@@ -29,7 +29,8 @@
     "release": "npm run build",
     "lint": "tslint src/**",
     "lint:fix": "tslint src/** --fix",
-    "version": "standard-version"
+    "version": "standard-version",
+    "start-tsc": "concurrently --kill-others \"tsc -w\" \"nodemon dist/app.js\""
   },
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -49,7 +50,7 @@
     "url": "http://github.com/steelsojka/lodash-decorators"
   },
   "devDependencies": {
-    "@types/chai": "^3.5.1",
+    "@types/chai": "^4.1.6",
     "@types/lodash": "^4.14.117",
     "@types/lodash-es": "^4.17.1",
     "@types/mocha": "^2.2.48",

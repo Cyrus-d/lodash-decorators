@@ -4,7 +4,7 @@ export declare type GenericDecorator = (...args: any[]) => LodashDecorator;
 export declare class InternalDecoratorFactory {
     createDecorator(config: DecoratorConfig): GenericDecorator;
     createInstanceDecorator(config: DecoratorConfig): GenericDecorator;
-    private _isApplicable;
-    private _resolveDescriptor;
+    private _isApplicable(context, config);
+    private _resolveDescriptor(target, name, descriptor?);
 }
 export declare const DecoratorFactory: InternalDecoratorFactory;

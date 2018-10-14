@@ -1,6 +1,6 @@
 import { LodashMethodDecorator } from './factory';
 import { DebounceOptions } from './shared';
-declare const decorator: import("../../../Projects/lodash-decorators/src/factory/DecoratorFactory").GenericDecorator;
+declare const decorator: (...args: any[]) => MethodDecorator & PropertyDecorator;
 /**
  * Creates a debounced function that delays invoking func until after wait milliseconds have elapsed since the last time the debounced function was invoked.
  * The debounced function comes with a cancel method to cancel delayed func invocations and a flush method to immediately invoke them.

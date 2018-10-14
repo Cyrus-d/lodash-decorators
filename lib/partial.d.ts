@@ -1,4 +1,4 @@
-declare const decorator: import("../../../Projects/lodash-decorators/src/factory/DecoratorFactory").GenericDecorator;
+declare const decorator: (...args: any[]) => MethodDecorator & PropertyDecorator;
 /**
  * Partially applies arguments to a function.
  * @export

@@ -1,5 +1,5 @@
 import { LodashMethodDecorator } from './factory';
-declare const decorator: import("../../../Projects/lodash-decorators/src/factory/DecoratorFactory").GenericDecorator;
+declare const decorator: (...args: any[]) => MethodDecorator & PropertyDecorator;
 /**
  * Creates a function that invokes func, with up to n arguments, ignoring any additional arguments.
  * @param {number} n The arity cap.

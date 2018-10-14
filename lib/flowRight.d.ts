@@ -1,5 +1,5 @@
 import { LodashDecorator, ResolvableFunction } from './factory';
-declare const decorator: import("../../../Projects/lodash-decorators/src/factory/DecoratorFactory").GenericDecorator;
+declare const decorator: (...args: any[]) => LodashDecorator;
 /**
  * Creates a function that returns the result of invoking the given functions with the this binding of the created function,
  * where each successive invocation is supplied the return value of the previous.
