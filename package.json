@@ -70,9 +70,7 @@
     "tslint-language-service": "^0.9.9",
     "typescript": "~2.3.4"
   },
-  "peerDependencies": {
-    "lodash-es": "^4.17.11"
-  },
+  "peerDependencies": {},
   "dependencies": {
     "lodash-es": "^4.17.11",
     "tslib": "^1.9.2"
